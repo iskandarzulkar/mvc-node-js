@@ -1,0 +1,32 @@
+<div class="container">
+    <h3>Data mahasiswa</h3>
+    <a href="create"><button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Add New</button></a>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">nim</th>
+                <th scope="col">fullname</th>
+                <th scope="col">email</th>
+                <th scope="col">Handle</th>
+            </tr>
+        <tbody>
+            {{#each mahasiswa}}
+            <tr>
+                <td>{{ id }}</td>
+                <td>{{ nim }}</td>
+                <td>{{ firstname }} {{ lastname }}</td>
+                <td>{{email}}</td>
+                <td>
+                    <a href="{{id}}/edit" class="btn btn-primary">edit</a>
+                    <form action="/{{id}}/?_method=DELETE" method="post">
+                        <input type="submit" class="btn btn-danger" name="submit" value="submit">
+                    </form>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+        </thead>
+    </table>
+
+</div>
